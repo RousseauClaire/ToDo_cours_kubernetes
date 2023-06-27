@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToDo_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'ToDo_db.dbo.ToDo' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="ToDo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ToDoItem" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsDone" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ToDo_dbModelStoreContainer">
+    <EntitySet Name="ToDo" EntityType="Self.ToDo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ToDo].[Id] AS [Id], 
+    [ToDo].[ToDoItem] AS [ToDoItem], 
+    [ToDo].[IsDone] AS [IsDone]
+    FROM [dbo].[ToDo] AS [ToDo]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
