@@ -1,0 +1,16 @@
+name: dockercompose3989953228411809064
+services:
+  todo:
+    build:
+      context: C:\Users\Claire\source\repos\ToDo\ToDo
+      dockerfile: Dockerfile
+    image: todo
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose3989953228411809064_default
